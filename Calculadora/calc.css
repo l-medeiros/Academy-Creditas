@@ -21,6 +21,13 @@ main {
 }
 
 button {
-    height: 35px;
-    width: 35px;
+  height: 35px;
+  width: 35px;
+}
+
+button:hover {
+  background-color: chartreuse;
+}
+.active {
+  background-color: yellow;
 }

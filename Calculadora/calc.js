@@ -6,12 +6,13 @@ let calculo = {
 };
 
 let regexNum = /[\d\.]/g;
-let regexSignal = /[\+\-\/\*\=]/g;
+let regexSign = /[\+\-\/\*\=]/g;
+let signButtons = document.getElementsByClassName("signButtons");
 
 calc.addEventListener('click', event => {
     let target = event.target;
     if(target.tagName != 'BUTTON') return;
-
+    
     if(target.value.match(regexNum)) {
         calculo.number += target.value;
         Display.innerHTML = `${calculo.number}`;
@@ -20,24 +21,21 @@ calc.addEventListener('click', event => {
             dot.disabled = true;
         }
     }
-    else if(target.value.match(regexSignal)) {
+    else if(target.value.match(regexSign)) {
         calculo.nextOper = target.value;
         calculo = makeOper(calculo);
         Display.innerHTML = `${calculo.result}`;
+        
+        changeButtonClass();
+        target.classList.add("active");
     }
     else  {
-        calculo = deleteNumber(calculo, target.value);
-        if(calculo.number === '') {
-            Display.innerHTML = '0';
-        }
-        else {
-            Display.innerHTML = `${calculo.number}`;
-        }
+        calculo = deleteNumber(calculo, target.value);   
     }
 });
 
 function makeOper(calculo) {
-    
+
     if(calculo.currentOper === '') {
         calculo.result = +calculo.number;
     }
@@ -72,6 +70,7 @@ function deleteNumber(calculo, deleteType) {
         calculo.currentOper = '';
         calculo.nextOper = '';
         dot.disabled = false;
+        changeButtonClass();
     }
     else {
         if(calculo.number[calculo.number.length-1] === '.') { 
@@ -80,6 +79,19 @@ function deleteNumber(calculo, deleteType) {
         
         calculo.number = calculo.number.slice(0, -1);
     }
-    
+
+    if(calculo.number === '') {
+        Display.innerHTML = '0';
+    }
+    else {
+        Display.innerHTML = `${calculo.number}`;
+    }
+
     return calculo;
+}
+
+function changeButtonClass() {
+    for(let i = 0; i < signButtons.length; i++) { //organizar em uma função
+        signButtons[i].classList.remove("active");
+    }
 }
