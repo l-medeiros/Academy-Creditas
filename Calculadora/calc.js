@@ -24,7 +24,6 @@ calc.addEventListener('click', event => {
         calculo.nextOper = target.value;
         calculo = makeOper(calculo);
         Display.innerHTML = `${calculo.result}`;
-        dot.disabled = false;
     }
     else  {
         calculo = deleteNumber(calculo, target.value);
@@ -34,33 +33,35 @@ calc.addEventListener('click', event => {
         else {
             Display.innerHTML = `${calculo.number}`;
         }
-        dot.disabled = false;
     }
 });
 
 function makeOper(calculo) {
-
+    
     if(calculo.currentOper === '') {
         calculo.result = +calculo.number;
     }
     else {
-        if(calculo.currentOper === '+') {
-            calculo.result += +calculo.number;
-        }    
-        else if(calculo.currentOper === '-') {
-            calculo.result -= +calculo.number;
-        }    
-        else if(calculo.currentOper === '*') {
-            calculo.result *= +calculo.number;
-        }    
-        else if(calculo.currentOper === '/'){
-            calculo.result /= +calculo.number;
-        }    
+        switch(calculo.currentOper) {
+            case '+':
+                calculo.result += +calculo.number;
+                break;    
+            case '-':
+                calculo.result -= +calculo.number;  
+                break;  
+            case '*':
+                calculo.result *= +calculo.number;    
+                break;
+            case '/':
+                calculo.result /= +calculo.number;    
+                break
+        }
     }
     
     calculo.currentOper = calculo.nextOper;
     calculo.number  = '';
     calculo.nextOper = '';
+    dot.disabled = false;
     return calculo;
 }
 
@@ -70,10 +71,15 @@ function deleteNumber(calculo, deleteType) {
         calculo.number = '';
         calculo.currentOper = '';
         calculo.nextOper = '';
+        dot.disabled = false;
     }
     else {
+        if(calculo.number[calculo.number.length-1] === '.') { 
+            dot.disabled = false;
+        }
+        
         calculo.number = calculo.number.slice(0, -1);
     }
-
+    
     return calculo;
 }
