@@ -1,0 +1,26 @@
+body {
+  display: grid;
+  grid-template-areas: "calculator";
+  grid-template-columns: auto 400px auto;
+  grid-template-rows: 100px 400px auto;
+  margin: 0;
+}
+
+main {
+  text-align: center;
+  grid-area: calculator;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+}
+
+#Display {
+  border: 1px solid black;
+  height: 42px;
+  font-size: 30px;  
+  margin: 10px;
+}
+
+button {
+    height: 35px;
+    width: 35px;
+}
