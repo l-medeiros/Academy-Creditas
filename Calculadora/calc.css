@@ -2,15 +2,18 @@
   --green: #23BD70;
   --darkGreen: #228855;
   --blue: #2A79BE;
-  --gray: #4A6666;
+  --gray: #d0d6d6;
+  --darkGray: #6f7474;
   --white: white;
+  --red: #db5c5c;
 }
 
 body {
+  font-family: 'Courier New', Courier, monospace;
   display: grid;
   grid-template-areas: "calculator";
-  grid-template-columns: auto 340px auto;
-  grid-template-rows: 100px 400px;
+  grid-template-columns: auto 300px auto;
+  grid-template-rows: 100px 350px;
   margin: 0;
 }
 
@@ -20,16 +23,17 @@ main {
   grid-column: 2 / 2;
   grid-row: 2 / 2;
 
-  border: 5px solid var(--gray);
+  border: 5px solid black;
   background-color: var(--green);
 }
 
 #Display {
   border: 1px solid black;
-  height: 45px;
+  height: 40px;
   font-size: 30px;
   margin: 10px;
-  background-color: var(--white);
+  padding-top: 10px;
+  background-color: var(--gray);
 }
 
 button {
@@ -39,7 +43,8 @@ button {
 
   height: 45px;
   width: 50px;
-  margin: 10px 5px;;
+  margin-top: 12px;
+  font-size: 16px;
 }
 
 button:hover {
@@ -54,4 +59,19 @@ button:hover {
 
 #Display, button, main {
   border-radius: 10px;
+}
+
+table {
+  margin: auto;
+}
+
+.deleteButtons {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+#equal {
+  width: 100%;
+  color: var(--white);
+  background-color: var(--darkGray);
 }
