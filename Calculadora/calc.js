@@ -14,12 +14,16 @@ calc.addEventListener('click', event => {
     if(target.tagName != 'BUTTON') return;
     
     if(target.value.match(regexNum)) {
-        calculo.number += target.value;
-        Display.innerHTML = `${calculo.number}`;
-        
-        if(target.value === ".") {
-            dot.disabled = true;
+        if(target.value === "-1") {
+            calculo.number = '' + (-1* +calculo.number);
         }
+        else {
+            if(target.value === ".") {
+                dot.disabled = true;
+            }
+            calculo.number += target.value;
+        }
+        Display.innerHTML = `${calculo.number}`;
     }
     else if(target.value.match(regexSign)) {
         calculo.nextOper = target.value;
