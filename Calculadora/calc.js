@@ -1,6 +1,6 @@
-let calculo = {
+let calculation = {
     result: 0,
-    number: '',
+    displayNumber: '',
     currentOper: '',
     nextOper: '',
 };
@@ -15,87 +15,87 @@ calc.addEventListener('click', event => {
     
     if(target.value.match(regexNum)) {
         if(target.value === "-1") {
-            calculo.number = '' + (-1* +calculo.number);
+            calculation.displayNumber = '' + (-1* +calculation.displayNumber);
         }
         else {
             if(target.value === ".") {
                 dot.disabled = true;
             }
-            calculo.number += target.value;
+            calculation.displayNumber += target.value;
         }
-        Display.innerHTML = `${calculo.number}`;
+        Display.innerHTML = `${calculation.displayNumber}`;
     }
     else if(target.value.match(regexSign)) {
-        calculo.nextOper = target.value;
-        calculo = makeOper(calculo);
-        Display.innerHTML = `${calculo.result}`;
+        calculation.nextOper = target.value;
+        calculation = makeOper(calculation);
+        Display.innerHTML = `${calculation.result}`;
         
         changeButtonClass();
         target.classList.add("active");
     }
     else  {
-        calculo = deleteNumber(calculo, target.value);   
+        calculation = deletedisplayNumber(calculation, target.value);   
     }
 });
 
-function makeOper(calculo) {
+function makeOper(calculation) {
 
-    if(calculo.currentOper === '') {
-        calculo.result = +calculo.number;
+    if(calculation.currentOper === '') {
+        calculation.result = +calculation.displayNumber;
     }
     else {
-        switch(calculo.currentOper) {
+        switch(calculation.currentOper) {
             case '+':
-                calculo.result += +calculo.number;
+                calculation.result += +calculation.displayNumber;
                 break;    
             case '-':
-                calculo.result -= +calculo.number;  
+                calculation.result -= +calculation.displayNumber;  
                 break;  
             case '*':
-                calculo.result *= +calculo.number;    
+                calculation.result *= +calculation.displayNumber;    
                 break;
             case '/':
-                calculo.result /= +calculo.number;    
+                calculation.result /= +calculation.displayNumber;    
                 break
         }
     }
     
-    calculo.currentOper = calculo.nextOper;
-    calculo.number  = '';
-    calculo.nextOper = '';
+    calculation.currentOper = calculation.nextOper;
+    calculation.displayNumber  = '';
+    calculation.nextOper = '';
     dot.disabled = false;
-    return calculo;
+    return calculation;
 }
 
-function deleteNumber(calculo, deleteType) {
+function deletedisplayNumber(calculation, deleteType) {
     if(deleteType === "C") {
-        calculo.result = 0;
-        calculo.number = '';
-        calculo.currentOper = '';
-        calculo.nextOper = '';
+        calculation.result = 0;
+        calculation.displayNumber = '';
+        calculation.currentOper = '';
+        calculation.nextOper = '';
         dot.disabled = false;
         changeButtonClass();
     }
     else {
-        if(calculo.number[calculo.number.length-1] === '.') { 
+        if(calculation.displayNumber[calculation.displayNumber.length-1] === '.') { 
             dot.disabled = false;
         }
         
-        calculo.number = calculo.number.slice(0, -1);
+        calculation.displayNumber = calculation.displayNumber.slice(0, -1);
     }
 
-    if(calculo.number === '') {
+    if(calculation.displayNumber === '') {
         Display.innerHTML = '0';
     }
     else {
-        Display.innerHTML = `${calculo.number}`;
+        Display.innerHTML = `${calculation.displayNumber}`;
     }
 
-    return calculo;
+    return calculation;
 }
 
 function changeButtonClass() {
-    for(let i = 0; i < signButtons.length; i++) { //organizar em uma função
+    for(let i = 0; i < signButtons.length; i++) { 
         signButtons[i].classList.remove("active");
     }
 }
