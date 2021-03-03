@@ -29,11 +29,16 @@ main {
 
 #Display {
   border: 1px solid black;
-  height: 40px;
+  height: 49px;
   font-size: 30px;
   margin: 10px;
   padding-top: 10px;
   background-color: var(--gray);
+  overflow: auto;
+}
+
+table {
+  margin: auto;
 }
 
 button {
@@ -52,17 +57,13 @@ button:hover {
   color: var(--white);
 }
 
-.active {
-  background-color: var(--blue);
-  color: var(--white);
-}
-
 #Display, button, main {
   border-radius: 10px;
 }
 
-table {
-  margin: auto;
+.active {
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 .deleteButtons {
@@ -70,12 +71,12 @@ table {
   color: var(--white);
 }
 
+.signButtons {
+  font-size: 20px;
+}
+
 #equal {
   width: 100%;
   color: var(--white);
   background-color: var(--darkGray);
-}
-
-.signButtons {
-  font-size: 20px;
 }
