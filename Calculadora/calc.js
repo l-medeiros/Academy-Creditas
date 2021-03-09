@@ -60,9 +60,11 @@ function makeOper(calculation) {
         }
     }
     
-    calculation.currentOper = calculation.nextOper;
-    calculation.displayNumber  = '';
-    calculation.nextOper = '';
+    if(calculation.nextOper !== '=') {
+        calculation.currentOper = calculation.nextOper;
+        calculation.displayNumber  = '';
+    }
+    
     dot.disabled = false;
     return calculation;
 }
