@@ -1,0 +1,82 @@
+:root {
+  --green: #23BD70;
+  --darkGreen: #228855;
+  --blue: #2A79BE;
+  --gray: #d0d6d6;
+  --darkGray: #6f7474;
+  --white: white;
+  --red: #db5c5c;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  display: grid;
+  grid-template-areas: "calculator";
+  grid-template-columns: auto 300px auto;
+  grid-template-rows: 100px 350px;
+  margin: 0;
+}
+
+main {
+  text-align: center;
+  grid-area: calculator;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+
+  border: 5px solid black;
+  background-color: var(--green);
+}
+
+#Display {
+  border: 1px solid black;
+  height: 49px;
+  font-size: 30px;
+  margin: 10px;
+  padding-top: 10px;
+  background-color: var(--gray);
+  overflow: auto;
+}
+
+table {
+  margin: auto;
+}
+
+button {
+  grid-area: Buttons;
+  grid-row: 2 / 5;
+  grid-column: 1 / 5;
+
+  height: 45px;
+  width: 50px;
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: var(--darkGreen);
+  color: var(--white);
+}
+
+#Display, button, main {
+  border-radius: 10px;
+}
+
+.active {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.deleteButtons {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.signButtons {
+  font-size: 20px;
+}
+
+#equal {
+  width: 100%;
+  color: var(--white);
+  background-color: var(--darkGray);
+}
