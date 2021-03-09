@@ -13,9 +13,16 @@ function numberClick(element) {
 }
 
 function signClick(element) {
+
     if(Display.dataset.oper === '') {
         Display.dataset.result = Display.innerText;
     }
+
+    if(element.value !== '=') {
+        Display.dataset.oper = element.value;
+        Display.dataset.number  = '';
+    }
+    
     else {
         switch(Display.dataset.oper) {
             case '+':
@@ -31,11 +38,6 @@ function signClick(element) {
                 Display.dataset.result /= Display.dataset.number;    
                 break
         }
-    }
-    
-    if(element.value !== '=') {
-        Display.dataset.oper = element.value;
-        Display.dataset.number  = '';
     }
     
     Display.innerText = Display.dataset.result;

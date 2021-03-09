@@ -27,7 +27,7 @@ calc.addEventListener('click', event => {
     }
     else if(target.value.match(regexSign)) {
         calculation.nextOper = target.value;
-        calculation = makeOper(calculation);
+        calculation = makeOperation(calculation);
         Display.innerHTML = `${calculation.result}`;
         
         changeButtonClass();
@@ -38,10 +38,14 @@ calc.addEventListener('click', event => {
     }
 });
 
-function makeOper(calculation) {
+function makeOperation(calculation) {
 
     if(calculation.currentOper === '') {
         calculation.result = +calculation.displayNumber;
+    }
+    if(calculation.nextOper !== '=') {
+        calculation.currentOper = calculation.nextOper;
+        calculation.displayNumber  = '';
     }
     else {
         switch(calculation.currentOper) {
@@ -60,10 +64,6 @@ function makeOper(calculation) {
         }
     }
     
-    if(calculation.nextOper !== '=') {
-        calculation.currentOper = calculation.nextOper;
-        calculation.displayNumber  = '';
-    }
     
     dot.disabled = false;
     return calculation;
