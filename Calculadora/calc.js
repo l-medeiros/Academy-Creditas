@@ -1,103 +1,95 @@
-let calculation = {
-    result: 0,
-    displayNumber: '',
-    currentOper: '',
-    nextOper: '',
-};
+let lastOperation = '';
+let currentOperation = '';
+let nextNumber = '';
+let result = 0;
 
-let regexNum = /[\d\.]/g;
-let regexSign = /[\+\-\/\*\=]/g;
-let signButtons = document.getElementsByClassName("signButtons");
-
-calc.addEventListener('click', event => {
-    let target = event.target;
-    if(target.tagName != 'BUTTON') return;
-    
-    if(target.value.match(regexNum)) {
-        if(target.value === "-1") {
-            calculation.displayNumber = '' + (-1* +calculation.displayNumber);
-        }
-        else {
-            if(target.value === ".") {
-                dot.disabled = true;
-            }
-            calculation.displayNumber += target.value;
-        }
-        Display.innerHTML = `${calculation.displayNumber}`;
-    }
-    else if(target.value.match(regexSign)) {
-        calculation.nextOper = target.value;
-        calculation = makeOperation(calculation);
-        Display.innerHTML = `${calculation.result}`;
-        
-        changeButtonClass();
-        target.classList.add("active");
-    }
-    else  {
-        calculation = deletedisplayNumber(calculation, target.value);   
-    }
-});
-
-function makeOperation(calculation) {
-
-    if(calculation.currentOper === '') {
-        calculation.result = +calculation.displayNumber;
-    }
-    if(calculation.nextOper !== '=') {
-        calculation.currentOper = calculation.nextOper;
-        calculation.displayNumber  = '';
+function numberClick(element) {
+    if(element.value === '-1') {
+        nextNumber *= -1;
     }
     else {
-        switch(calculation.currentOper) {
-            case '+':
-                calculation.result += +calculation.displayNumber;
-                break;    
-            case '-':
-                calculation.result -= +calculation.displayNumber;  
-                break;  
-            case '*':
-                calculation.result *= +calculation.displayNumber;    
-                break;
-            case '/':
-                calculation.result /= +calculation.displayNumber;    
-                break
+        if(element.value === '.') {
+            dot.disabled = true;
         }
+        nextNumber += element.value;
     }
-    
-    
-    dot.disabled = false;
-    return calculation;
+
+    Display.innerText = nextNumber;
 }
 
-function deletedisplayNumber(calculation, deleteType) {
-    if(deleteType === "C") {
-        calculation.result = 0;
-        calculation.displayNumber = '';
-        calculation.currentOper = '';
-        calculation.nextOper = '';
+function signClick(element) {
+
+    if(currentOperation === '') {
+        result = Display.innerText;
+        currentOperation = element.value;
+        nextNumber = '';
+    }
+    
+    else {
+        if(element.value !== '=') {
+            evaluate(currentOperation);
+            nextNumber = '';
+        }
+        else {
+            if(currentOperation === '=') {
+                evaluate(lastOperation);
+            }
+            else {
+                evaluate(currentOperation);
+                lastOperation = currentOperation;
+            }
+        }
+        currentOperation = element.value;
+    }
+    
+    Display.innerText = result;
+    dot.disabled = false;
+
+    changeButtonClass();
+    element.classList.add("active");
+}
+
+function deleteClick(deleteType) {
+    if(deleteType.value === "C") {
+        result = 0;
+        nextNumber = '';
+        currentOperation = '';
+        Display.innerText = 0;
         dot.disabled = false;
         changeButtonClass();
     }
     else {
-        if(calculation.displayNumber[calculation.displayNumber.length-1] === '.') { 
+        if(nextNumber[nextNumber.length-1] === '.') { 
             dot.disabled = false;
         }
-        
-        calculation.displayNumber = calculation.displayNumber.slice(0, -1);
-    }
 
-    if(calculation.displayNumber === '') {
-        Display.innerHTML = '0';
+        nextNumber = nextNumber.slice(0, -1);
+        Display.innerText = nextNumber;
     }
-    else {
-        Display.innerHTML = `${calculation.displayNumber}`;
-    }
-
-    return calculation;
 }
 
 function changeButtonClass() {
+    let signButtons = document.getElementsByClassName("signButtons");
     for(let i = 0; i < signButtons.length; i++) { 
         signButtons[i].classList.remove("active");
+    }
+}
+
+function evaluate(operation) {
+    if(nextNumber !== '') {
+        switch(operation) {
+            case '+':
+                result = +result + +nextNumber;
+                break;    
+            case '-':
+                result -= nextNumber;  
+                break;  
+            case '*':
+                result *= nextNumber;    
+                break;
+            case '/':
+                result /= nextNumber;    
+                break
+        }
     }
 }

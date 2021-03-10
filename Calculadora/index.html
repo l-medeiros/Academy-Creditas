@@ -14,31 +14,31 @@
     <section id="Display">0</section>   
     <table>
       <tr>
-        <td><button value="7">7</button></td>
-        <td><button value="8">8</button></td>
-        <td><button value="9">9</button></td>
-        <td><button class="deleteButtons" value="CE">CE</button></td>
-        <td><button class="deleteButtons" value="C">C</button></td>
+        <td><button value="7" onclick="numberClick(this)">7</button></td>
+        <td><button value="8" onclick="numberClick(this)">8</button></td>
+        <td><button value="9" onclick="numberClick(this)">9</button></td>
+        <td><button class="deleteButtons" onclick="deleteClick(this)" value="CE">CE</button></td>
+        <td><button class="deleteButtons" onclick="deleteClick(this)" value="C">C</button></td>
       </tr>
       <tr>
-        <td><button value="4">4</button></td>
-        <td><button value="5">5</button></td>
-        <td><button value="6">6</button></td>
-        <td><button class="signButtons" value="*">x</button></td>
-        <td><button class="signButtons" value="/">&#247</button></td>
+        <td><button value="4" onclick="numberClick(this)">4</button></td>
+        <td><button value="5" onclick="numberClick(this)">5</button></td>
+        <td><button value="6" onclick="numberClick(this)">6</button></td>
+        <td><button class="signButtons" onclick="signClick(this)" value="*">x</button></td>
+        <td><button class="signButtons" onclick="signClick(this)" value="/">&#247</button></td>
       </tr>
       <tr>
-        <td><button value="1">1</button></td>
-        <td><button value="2">2</button></td>
-        <td><button value="3">3</button></td>
-        <td><button class="signButtons" value="+">+</button></td>
-        <td><button class="signButtons" value="-">-</button></td>
+        <td><button value="1" onclick="numberClick(this)">1</button></td>
+        <td><button value="2" onclick="numberClick(this)">2</button></td>
+        <td><button value="3" onclick="numberClick(this)">3</button></td>
+        <td><button class="signButtons" onclick="signClick(this)" value="+">+</button></td>
+        <td><button class="signButtons" onclick="signClick(this)" value="-">-</button></td>
       </tr>
       <tr>
-        <td><button id="dot" value=".">.</button></td>
-        <td><button value="0">0</button></td>
-        <td><button value="-1">+/-</button></td>
-        <td colspan="2"><button id="equal" class="signButtons" value="=">=</button></td>
+        <td><button id="dot" onclick="numberClick(this)" value=".">.</button></td>
+        <td><button value="0" onclick="numberClick(this)">0</button></td>
+        <td><button onclick="numberClick(this)" value="-1">+/-</button></td>
+        <td colspan="2"><button id="equal" class="signButtons" onclick="signClick(this)" value="=">=</button></td>
       </tr>
     </table>
 
