@@ -46,7 +46,7 @@ function evaluate(operation) {
     if(nextNumber !== '') {
         switch(operation) {
             case '+':
-                result = +result + +nextNumber;
+                result = parseFloat(result) + parseFloat(nextNumber);
                 break;    
             case '-':
                 result -= nextNumber;  
