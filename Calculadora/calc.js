@@ -3,76 +3,43 @@ let currentOperation = '';
 let nextNumber = '';
 let result = 0;
 
-function numberClick(element) {
-    if(element.value === '-1') {
+function numberClick(button) {
+    if(button.value === '-1') {
         nextNumber *= -1;
     }
     else {
-        if(element.value === '.') {
-            dot.disabled = true;
-        }
-        nextNumber += element.value;
+        nextNumber += button.value;
     }
-
+    
     Display.innerText = nextNumber;
+    changeDotState();
 }
 
-function signClick(element) {
-
+function signClick(button) {
     if(currentOperation === '') {
         result = Display.innerText;
-        currentOperation = element.value;
         nextNumber = '';
     }
-    
+    else if(button.value !== '=') {
+        evaluate(currentOperation);
+        nextNumber = '';
+    }
     else {
-        if(element.value !== '=') {
-            evaluate(currentOperation);
-            nextNumber = '';
+        if(currentOperation === '=') {
+            evaluate(lastOperation);
         }
         else {
-            if(currentOperation === '=') {
-                evaluate(lastOperation);
-            }
-            else {
-                evaluate(currentOperation);
-                lastOperation = currentOperation;
-            }
+            evaluate(currentOperation);
+            lastOperation = currentOperation;
         }
-        currentOperation = element.value;
     }
     
+    currentOperation = button.value;
     Display.innerText = result;
-    dot.disabled = false;
 
-    changeButtonClass();
-    element.classList.add("active");
-}
-
-function deleteClick(deleteType) {
-    if(deleteType.value === "C") {
-        result = 0;
-        nextNumber = '';
-        currentOperation = '';
-        Display.innerText = 0;
-        dot.disabled = false;
-        changeButtonClass();
-    }
-    else {
-        if(nextNumber[nextNumber.length-1] === '.') { 
-            dot.disabled = false;
-        }
-
-        nextNumber = nextNumber.slice(0, -1);
-        Display.innerText = nextNumber;
-    }
-}
-
-function changeButtonClass() {
-    let signButtons = document.getElementsByClassName("signButtons");
-    for(let i = 0; i < signButtons.length; i++) { 
-        signButtons[i].classList.remove("active");
-    }
+    changeDotState();
+    deleteButtonClass("active");
+    button.classList.add("active");
 }
 
 function evaluate(operation) {
@@ -91,5 +58,37 @@ function evaluate(operation) {
                 result /= nextNumber;    
                 break
         }
+    }
+}
+
+function deleteClick(deleteType) {
+    if(deleteType.value === "C") {
+        result = 0;
+        nextNumber = '';
+        currentOperation = '';
+        lastOperation = '';
+        Display.innerText = 0;
+        deleteButtonClass("active");
+    }
+    else {
+        nextNumber = nextNumber.slice(0, -1);
+        Display.innerText = nextNumber;
+    }
+    changeDotState();
+}
+
+function deleteButtonClass(deletedClass) {
+    let signButtons = document.getElementsByClassName("signButtons");
+    for(let i = 0; i < signButtons.length; i++) { 
+        signButtons[i].classList.remove(deletedClass);
+    }
+}
+
+function changeDotState() {
+    if(nextNumber.includes('.')) {
+        dot.disabled = true;
+    }
+    else {
+        dot.disabled = false;
     }
 }
