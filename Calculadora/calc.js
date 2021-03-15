@@ -3,24 +3,27 @@ let currentOperation = '';
 let nextNumber = '';
 let result = 0;
 
-function numberClick(button) {
-    if(button.value === '-1') {
+function updateDisplay(value) {
+    Display.innerText = value;
+}
+
+function getNextNumber(number) {
+    if(number === '-1') {
         nextNumber *= -1;
     }
     else {
-        nextNumber += button.value;
+        nextNumber += number;
     }
-    
-    Display.innerText = nextNumber;
-    changeDotState();
+    updateDisplay(nextNumber);
+    updateDotSate();
 }
 
-function signClick(button) {
+function doesOperation(sign) {
     if(currentOperation === '') {
         result = Display.innerText;
         nextNumber = '';
     }
-    else if(button.value !== '=') {
+    else if(sign.value !== '=') {
         evaluate(currentOperation);
         nextNumber = '';
     }
@@ -34,12 +37,10 @@ function signClick(button) {
         }
     }
     
-    currentOperation = button.value;
-    Display.innerText = result;
-
-    changeDotState();
-    deleteButtonClass("active");
-    button.classList.add("active");
+    currentOperation = sign.value;
+    updateDisplay(result);
+    updateDotSate();
+    updateActiveSignButton(sign);
 }
 
 function evaluate(operation) {
@@ -68,23 +69,26 @@ function deleteClick(deleteType) {
         currentOperation = '';
         lastOperation = '';
         Display.innerText = 0;
-        deleteButtonClass("active");
+        updateActiveSignButton();
     }
     else {
         nextNumber = nextNumber.slice(0, -1);
         Display.innerText = nextNumber;
     }
-    changeDotState();
+    updateDotSate();
 }
 
-function deleteButtonClass(deletedClass) {
+function updateActiveSignButton(currentSign) {
     let signButtons = document.getElementsByClassName("signButtons");
     for(let i = 0; i < signButtons.length; i++) { 
-        signButtons[i].classList.remove(deletedClass);
+        signButtons[i].classList.remove("active");
+    }
+    if(typeof(currentSign) !== 'undefined') {
+        currentSign.classList.add("active");
     }
 }
 
-function changeDotState() {
+function updateDotSate() {
     if(nextNumber.includes('.')) {
         dot.disabled = true;
     }
