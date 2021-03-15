@@ -3,10 +3,6 @@ let currentOperation = '';
 let nextNumber = '';
 let result = 0;
 
-function updateDisplay(value) {
-    Display.innerText = value;
-}
-
 function getNextNumber(number) {
     if(number === '-1') {
         nextNumber *= -1;
@@ -62,20 +58,8 @@ function evaluate(operation) {
     }
 }
 
-function deleteClick(deleteType) {
-    if(deleteType.value === "C") {
-        result = 0;
-        nextNumber = '';
-        currentOperation = '';
-        lastOperation = '';
-        Display.innerText = 0;
-        updateActiveSignButton();
-    }
-    else {
-        nextNumber = nextNumber.slice(0, -1);
-        Display.innerText = nextNumber;
-    }
-    updateDotSate();
+function updateDisplay(value) {
+    Display.innerText = value;
 }
 
 function updateActiveSignButton(currentSign) {
@@ -95,4 +79,21 @@ function updateDotSate() {
     else {
         dot.disabled = false;
     }
+}
+
+
+function deleteClick(deleteType) {
+    if(deleteType.value === "C") {
+        result = 0;
+        nextNumber = '';
+        currentOperation = '';
+        lastOperation = '';
+        Display.innerText = 0;
+        updateActiveSignButton();
+    }
+    else {
+        nextNumber = nextNumber.slice(0, -1);
+        Display.innerText = nextNumber;
+    }
+    updateDotSate();
 }
