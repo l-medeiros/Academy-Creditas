@@ -1,4 +1,4 @@
-# Academy-Creditas-Restaurante
+# Academy Creditas Restaurante
 
 Site de um restaurante fictício de comida japonesa, densenvolvido nas seguintes versões/etapas:
 
