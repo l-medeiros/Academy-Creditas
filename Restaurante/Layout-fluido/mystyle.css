@@ -1,0 +1,228 @@
+/*Page body*/
+* {
+  margin:0;
+}
+main {
+  background-color: #e2c18f;
+}
+body {
+  font-family: "Permanent Marker", cursive;
+}
+/*Logo and name*/
+header {                 
+  background-color: black;
+  color: white;
+  height: 22.22%;
+  width: 100%
+}
+header h1 {
+  padding: 20px;
+  text-align: center;
+}
+header img {
+  vertical-align: middle;
+  width: 22.22%;
+  height: 18.33%;  
+}
+/*Nav and content*/
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #990000;
+  box-shadow: -1px 0 10px black, 0 1px black, 1px 0 black, 0 -1px black;
+  z-index: 1;
+  float: left;
+  width: 27.77%;
+}
+nav h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4vw;
+  color: white;
+}
+nav img {
+  margin-left: 5px;
+  width: 10%;
+  vertical-align: middle;
+}
+.content {
+  display: inline-block;
+  width: 72.22%;
+}
+/* Navigation bar */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: visible;
+}
+nav li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 2.3vw;
+  padding: 16px;
+  text-align: center;
+}
+nav li a:hover:not(#atual){
+  background-color: white;
+  color: black;
+}
+#atual {
+  background-color: #101010;
+  color: #DF3739;
+}
+/* Dropdown 'cardápio' */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: inherit;
+  background-color: #b1a89e;
+  z-index: 1;
+}
+.dropdown-content a, .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Home page */
+/* Welcome pic */
+.welcome {
+  position: relative;
+  float: left;
+  margin: 10px 2.5% 30px;
+  box-shadow: 0 10px 30px black;
+  width: 95%;
+}
+.center {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  color:#DF3739;
+  font-size: 5vw;
+  text-shadow: -1px 0 10px black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.welcome img {
+  width: 100%;
+  opacity: 0.65;
+}
+/* Produtos em destaque */
+.gallery {
+  box-sizing: border-box;
+  margin-left: 2.5%;
+  margin-bottom: 2.5%;
+  border: 1px solid white;
+  float: left;
+  width: 30%;
+  height: 30vw;
+  box-shadow: 0 10px 20px #e4312b;
+}
+.gallery img {
+  width: 100%;
+  height: 40%;
+}
+.desc {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  padding: 0.4vw;
+}
+.desc h3 {
+  margin: 1vw;
+  font-size: 2vw;
+}
+.desc p {
+  font-size: 1.5vw;
+}
+
+/* Quem somos? */
+.identidade h1 {
+  margin-top: 1.53%;
+  font-size: 2.4vw;
+  text-align: center;
+}
+.identidade p {
+  font-family: "Roboto", sans-serif;
+  text-align: justify;
+  font-size: 1.5vw;
+  margin: 2.5% 5%;
+}
+/* Shadow */
+.picsQS {
+  box-shadow: 0 10px 20px black;
+}
+/* Size */
+.middle {
+  height: 37.5vw;
+  float: left;
+  margin: 20px 6%;
+}
+.small {
+  width: 37.86%;
+  float:left;
+  margin-top:20px;
+}
+.big {
+  width:80%;
+  margin:10px 8%;
+}
+
+/* Sushi */
+.sushi {
+  box-shadow: 0 10px 20px #141413;
+}
+.price {
+  color: #a11515;
+}
+#sushiTitle {
+  text-align: center;
+  font-size: 2.6vw;
+  margin: 0.5vw;
+}
+
+/* Sushi Premium */
+#premium {
+  text-align: center;
+  font-size: 2.6vw;
+  margin: 1vw;
+  text-shadow: 0 10px 1px #e4a32b;
+}
+.premium {
+  box-shadow: 0 10px 20px #f3a20b;
+}
+
+/* Contato */
+label, input, textarea {
+  box-sizing: border-box;
+  margin: 0 2.5%;
+  padding: 10px 30px;
+  width: 95%;
+  border-radius: 10px;
+}
+#msg {
+  height: 15%;
+  resize:vertical;
+}
+button {
+  background-color: #DF3739;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 2vw;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #800002;
+}
+#map {
+  text-align: center;
+}
+#map img {
+  width: 70%;
+  box-shadow: 0 10px 20px #141413;
+}

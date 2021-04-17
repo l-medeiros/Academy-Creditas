@@ -1,0 +1,314 @@
+@media only screen and (max-width:500px) {
+  header h1 {
+    font-size: 20px;
+  }
+}
+/* Home @media */
+@media only screen and (max-width:920px) {
+  .welcome img{
+    width: 65vw;
+  }
+  .center{
+    font-size: 5vw;
+  }
+  #fame{
+    font-size: 5vw;
+  }
+  .gallery {
+    margin: 0.5vw;
+    width: 22.22vw;
+    height: 50vh;
+  }
+  .gallery img {
+    width: 22vw;
+    height: 16vw;
+  }
+  .desc {
+    padding: 0.55vw;
+  }
+  
+  .desc h3 {
+    margin: 1vw;
+    font-size: 2vw;
+  }
+  .desc p {
+    font-size: 1.8vw;
+  }
+}
+@media only screen and (max-width:900px) {
+  .welcome img{
+    width: 60vw;
+  }
+  .center{
+    font-size: 35px;
+  }
+  .gallery {
+    float: unset;
+    margin: 0vh auto 2vh;
+    width: 260px;
+    height: 420px;
+  }
+  .gallery img {
+    width: 258px;
+    height: 182px;
+  }
+  .desc h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .desc p {
+    font-size: 17px;
+  }
+}
+@media only screen and (max-width:795px) {
+  .welcome img{
+    width: 50vw;
+  }
+}
+@media only screen and (min-width: 921px){
+  .welcome {
+    float: unset;
+    margin: 2vh auto 2vh;
+    width: 60vw;
+  }
+  .welcome img {
+    width: 60vw;
+  }
+  .gallery {
+    margin-left: 0.5vw;
+    width: 22.22vw;
+    height: 40vw;
+  }
+  .gallery img {
+    width: 22vw;
+    height: 16vw;
+  }
+  .desc {
+    padding: 0.55vw;
+  }
+  .desc h3 {
+    margin: 1vw;
+    font-size: 2vw;
+  }
+  .desc p {
+    font-size: 1.8vw;
+  }
+}
+@media only screen and (min-width: 1110px) {
+  .gallery {
+    margin-left: 2vw;
+    width: 250px;
+    height: 400px;
+  }
+  .gallery img {
+    width: 248px;
+    height: 170px;
+  }
+  .desc {
+    padding: 7px;
+  }
+  .desc h3 {
+    margin: 5px;
+    font-size: 23px;
+  }
+  .desc p {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .content {
+    margin-left: 50px;
+  }
+  .welcome, .welcome img {
+    width: 900px;
+  }
+  .gallery {
+    margin: 0 40px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .content {
+    margin-left: 100px;
+  }
+  .welcome, .welcome img {
+    width: 900px;
+  }
+  .gallery {
+    margin: 0 40px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .content {
+    margin-left: 200px;
+  }
+  .welcome, .welcome img {
+    width: 900px;
+  }
+  .gallery {
+    margin: 0 50px;
+  }
+}
+
+/* Sushi @media */
+@media only screen and (min-width:630px) { 
+  .contentSushi {
+    width: 50vw;
+  }
+} 
+@media only screen and (min-width:670px) { 
+  .contentSushi {
+    width: 60vw;
+  }
+} 
+@media only screen and (min-width:744px) { 
+  .sushi {
+    margin: 5vh 8vw;
+  }
+} 
+@media only screen and (min-width:925px) { 
+  .contentSushi {
+    width: 71vw;
+  }
+  .sushi {
+    margin: 5vh 0 0 5vw;
+  }
+} 
+@media only screen and (min-width:1000px) { 
+  
+  .sushi {
+    margin: 5vh 0 0 9vw;
+  }
+} 
+@media only screen and (min-width:1241px) { 
+  .contentSushi {
+    width: 76vw;
+  }
+  .sushi {
+    margin: 5vh 0 0 4vw;
+  }
+}
+@media only screen and (min-width:1589px) {
+  .contentSushi {
+    width: 82vw;
+  }
+}
+@media only screen and (min-width:1745px) {
+  .sushi {
+    margin: 5vh 0 0 5vw;
+  }
+}
+
+/* Sushi Preimum @media */
+@media only screen and (min-width:1745px) { 
+  .premium {
+    margin: 5vh 0 0 10vw;
+  }
+}
+
+/* Contato @media */
+@media only screen and (min-width:500px) {
+  .contato {
+    width: 50vw;
+  }
+  label, input, textarea {
+    box-sizing: border-box;
+    padding: 10px 30px;
+    width: 50vw;
+    border-radius: 10px;
+  }
+  button, #map, label, input, textarea {
+    margin-left: 5vw;
+  }
+  .contato h1, .contato p {
+    text-align: center;
+    margin: 0 0 15px 17vw;
+  }
+  #map img {
+    width: 50vw;
+  }
+}
+@media only screen and (min-width:700px) {
+  button, #map, label, input, textarea {
+    margin-left: 10vw;
+  }
+}
+@media only screen and (min-width:1388px) {
+  label, input, textarea {
+    width: 700px;
+  }
+  button, label, #map, input, textarea, .contato h1, .contato p {
+    margin-left: 140px;
+  }
+  #map img {
+    width: 700px;
+  }
+}
+
+/* Quem somos @media */
+@media only screen and (min-width:500px) {
+  .identidade {
+    width: 50vw;
+  }
+  .picsQS {
+    width: 200px;
+    margin: 3vh 5vw;
+  }
+}
+@media only screen and (min-width:670px) {
+  .identidade {
+    width: 60vw;
+  }
+  .picsQS {
+    width: 300px;
+    margin: 3vh 5vw;
+  }
+}
+@media only screen and (min-width:834px) {
+  .picsQS {
+    margin: 20px 0 0 5vw;
+  }
+
+  .identidade {
+    width: 65vw;
+  }
+
+  .middle {
+    height: 349px;
+    width: 246px;
+    float:left;
+  }
+  .small {
+    width:246px;
+    float:left;
+  }
+  .big {
+    width:550px;
+    margin-top: 50px;
+  }
+}
+@media only screen and (min-width:1083px) {
+  .identidade {
+    width: 810px;
+  }
+  .middle, .small {
+    margin-left: 115px;
+  }
+  .big {
+    margin-left: 140px;
+  }
+}
+@media only screen and (min-width:1122px) {
+  .identidade {
+    margin-left: 2vw;
+  }
+}
+@media only screen and (min-width:1380px) {
+  .identidade {
+    margin-left: 10vw;
+  }
+}
+@media only screen and (min-width:1678px) {
+  .identidade {
+    margin-left: 20vw;
+  }
+}

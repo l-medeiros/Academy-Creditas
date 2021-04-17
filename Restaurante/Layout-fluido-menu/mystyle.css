@@ -1,0 +1,196 @@
+/*Page body*/
+* {
+  margin: 0;
+}
+body {
+  font-family: "Permanent Marker", cursive;
+  background-color: #e2c18f;
+}
+/*Logo and name*/
+header {                 
+  background-color: black;
+  color: white;
+  height: 200px;
+}
+header h1 {
+  padding: 20px;
+  text-align: center;
+}
+header img {
+  vertical-align: middle;
+  width: 200px;
+  height: 165px;  
+}
+/*Nav and content*/
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #990000;
+  box-shadow: -1px 0 10px black, 0 1px black, 1px 0 black, 0 -1px black;
+  z-index: 1;
+  float:left;
+  width: 250px;
+}
+nav h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  color: white;
+}
+nav img {
+  margin-left: 5px;
+  width:40px;
+  vertical-align: middle;
+}
+/* Dropdown 'cardápio' */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 250px;
+  top: 0;
+  width: inherit;
+  background-color: #b1a89e;
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Navigation bar */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: visible;
+}
+nav li a:hover:not(#atual){
+  background-color: white;
+  color: black;
+}
+#atual {
+  background-color: #101010;
+  color: #DF3739;
+}
+nav li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  padding: 16px;
+  text-align: center;
+}
+.content {
+  display: inline-block;
+}
+/* Home page */
+/* Welcome pic */
+.welcome {
+  position: relative;
+  float: left;
+  margin: 2vh 1.5vw 2vh;
+  box-shadow: 0 10px 30px black;
+}
+.center {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  color:#DF3739;
+  font-size: 50px;
+  text-shadow: -1px 0 10px black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.welcome img {
+  width: 630px;
+  opacity: 0.65;
+}
+/* Produtos em destaque */
+.gallery {
+  box-sizing: border-box;
+  margin: 8px;
+  border: 1px solid white;
+  float: left;
+  box-shadow: 0 10px 20px #e4312b;
+}
+.desc {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  padding: 5px;
+}
+.desc h3 {
+  margin: 10px;
+}
+/* Quem somos? */
+.identidade h1 {
+  margin-top:10px;
+  text-align: center;
+}
+.identidade p {
+  font-family:Roboto, sans-serif;
+  text-align:justify;
+  margin: 30px;
+}
+/* Shadow */
+.picsQS {
+  box-shadow: 0 10px 20px black;
+}
+/* Size */
+/* Sushi */
+.contentSushi {
+  display: inline-block;
+}
+#sushi {
+  text-align: center;
+  margin: 10px;
+}
+.sushi {
+  border: 1px solid white;
+  box-shadow: 0 10px 20px #141413;
+}
+.sushi img {
+  width: 248px;
+  height: 140px;
+}
+.price {
+  color: #a11515;
+}
+
+/* Sushi Premium */
+#premium {
+  text-align: center;
+  text-shadow: 0 10px 1px #e4a32b;
+}
+.premium {
+  box-shadow: 0 10px 20px #f3a20b;
+}
+/* Contato */
+label, input, textarea {
+  box-sizing: border-box;
+  margin: 10px 5px 10px 25px;
+  padding: 10px 30px;
+  width: 600px;
+  border-radius: 10px;
+}
+#msg {
+  height: 100px;
+  resize:vertical;
+}
+button {
+  background-color: #DF3739;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 25px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #800002;
+}
+#map {
+  text-align: center;
+}
+#map img {
+  box-shadow: 0 10px 20px #141413;
+}
